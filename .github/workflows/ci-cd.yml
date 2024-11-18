@@ -7,6 +7,9 @@ on:
 
 env:
   DOTNET_VERSION: '8.0.x'
+  SOLUTION_FILE: 'CICD_API/CICD_API.sln'
+  FOLDER: 'CICD_API'
+
 
 jobs:
   build:
@@ -23,7 +26,10 @@ jobs:
           dotnet-version: ${{ env.DOTNET_VERSION }}
 
       - name: Restore dependencies 📦
-        run: dotnet restore CICD_API
+        run: dotnet restore ${{ env.FOLDER }}
 
       - name: Build App
-        run: dotnet build -c Release --no-restore CICD_API/CICD_API.sln
+        run: dotnet build -c Release --no-restore ${{ env.SOLUTION_FILE }}
+
+      - name: Publish App
+        run: dotnet publish -c Release -o ./out ${{ env.SOLUTION_FILE }}
