@@ -33,3 +33,10 @@ jobs:
 
       - name: Publish App
         run: dotnet publish -c Release -o ./out ${{ env.SOLUTION_FILE }}
+
+      - name: Deploy to Azure Web Apps
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: WeatherForMe2
+          publish-profile: ${{ secrets.AZURE_THE_DARK_SECRET_OF_THE_ORTHODOX_CHURCH }}
+          package: ./out
