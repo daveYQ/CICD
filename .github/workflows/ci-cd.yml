@@ -7,8 +7,8 @@ on:
 
 env:
   DOTNET_VERSION: '8.0.x'
-  SOLUTION_FILE: 'CICD_API/CICD_API.sln'
-  FOLDER: 'CICD_API'
+  SOLUTION_FILE: './CICD_API/CICD_API.sln'
+  FOLDER: './CICD_API'
 
 
 jobs:
