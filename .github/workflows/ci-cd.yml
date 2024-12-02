@@ -37,6 +37,6 @@ jobs:
       - name: Deploy to Azure Web Apps
         uses: azure/webapps-deploy@v2
         with:
-          app-name: WeatherForMe2
+          app-name: daveq-cicd
           publish-profile: ${{ secrets.AZURE_THE_DARK_SECRET_OF_THE_ORTHODOX_CHURCH }}
           package: ./out
